@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func fib() func() int {
 	a, b:= 0, 1
@@ -42,5 +44,14 @@ func main() {
 
 	card02 := newDeck()
 	card02.print()
+
+	hand, remainingCards := deal(card02, 5)
+
+	hand.print()
+	remainingCards.print()
+
+
+	writeFileError := hand.saveToFile("./hand.txt")
+	fmt.Println(writeFileError)
 }
 
