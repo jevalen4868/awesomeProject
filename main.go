@@ -56,5 +56,23 @@ func main() {
 
 	cardsFile := newDeckFromFile("./hand.txt")
 	cardsFile.print()
+
+	fmt.Println("-------------------------------")
+
+	cardsFile.shuffle()
+
+	cardsFile.print()
+
+	fmt.Println("-------------------------------")
+
+	cardsFile.shuffle()
+
+	cardsFile.print()
+
+	fmt.Println("-------------------------------")
+
+	cardsFile.shuffle()
+
+	cardsFile.print()
 }
 
