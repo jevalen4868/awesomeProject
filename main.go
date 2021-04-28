@@ -53,5 +53,8 @@ func main() {
 
 	writeFileError := hand.saveToFile("./hand.txt")
 	fmt.Println(writeFileError)
+
+	cardsFile := newDeckFromFile("./hand.txt")
+	cardsFile.print()
 }
 
