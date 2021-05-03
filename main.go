@@ -18,7 +18,45 @@ func newCard() string {
 
 var deckSize = 52
 
+type car struct {
+	make string
+	model string
+}
+
+func (c *car) print() {
+	fmt.Println(c)
+	fmt.Println(*c)
+
+}
+
+func print(c *car) {
+	fmt.Println(c)
+	fmt.Println(*c)
+}
+
+type bot interface {
+	getGreeting() string
+}
+
+type engBot struct{}
+type spanBot struct{}
+
+func (engBot) getGreeting() string {
+	return "SUP YO"
+}
+
+func (spanBot) getGreeting() string {
+	return "Que tal"
+}
+
+func printGreeting(b bot) {
+	fmt.Println(b.getGreeting())
+}
+
 func main() {
+	printGreeting(engBot{})
+	printGreeting(spanBot{})
+
 	var card string = "Ace of Spades"
 	card1 := "Queen of Hearts"
 	card3 := ""
@@ -74,5 +112,25 @@ func main() {
 	cardsFile.shuffle()
 
 	cardsFile.print()
+
+	fmt.Println("-------------------------------")
+
+	fordFocus := car{
+		make: "Ford",
+		model: "Focus",
+	}
+
+	nameBill := "bill"
+	fmt.Println(*&nameBill)
+
+	print(&fordFocus)
+	fordFocus.print()
+
+	makeModel := map[string]string {
+		"Ford" : "Focus",
+		//"Ford" : "F150",
+	}
+
+	fmt.Println(makeModel)
 }
 
